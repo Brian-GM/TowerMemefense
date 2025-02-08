@@ -7,12 +7,12 @@
 size = Vector2(59, 46)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utjro"]
-radius = 87.0517
+radius = 193.01
 
 [node name="BaseTower" type="StaticBody2D"]
 script = ExtResource("1_jidlq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionTower" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_6vg7n")
 
@@ -22,12 +22,14 @@ shape = SubResource("RectangleShape2D_6vg7n")
 rotation = 1.5708
 texture = ExtResource("1_etfdc")
 
-[node name="Tower" type="Area2D" parent="."]
+[node name="AlcanceAtaque" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AlcanceAtaque"]
 shape = SubResource("CircleShape2D_utjro")
 
-[node name="Node" type="Node" parent="."]
+[node name="ShootCooldown" type="Timer" parent="."]
+wait_time = 0.5
 
-[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
-[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="body_entered" from="AlcanceAtaque" to="." method="_on_alcance_ataque_body_entered"]
+[connection signal="body_exited" from="AlcanceAtaque" to="." method="_on_alcance_ataque_body_exited"]
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

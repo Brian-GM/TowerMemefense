@@ -2,7 +2,7 @@ extends BaseEnemy
 
 
 const speed = 50.0
-var health = 100
+var health = 50
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:

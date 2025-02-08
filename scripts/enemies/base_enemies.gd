@@ -5,17 +5,22 @@ class_name BaseEnemy
 var SPEED = 0
 var HEALTH = 0
 
-@onready var path_2d: Path2D = $Path2D
+@onready var path_follow: PathFollow2D = get_parent() as PathFollow2D  # Accede al PathFollow2D
 
+func progressive_move(delta: float) -> void:
+	if path_follow:  # Verifica que el path_follow es válido
+		path_follow.progress += SPEED * delta  # Avanza en la ruta
 
-func progressive_move(delta:float) -> void:
-	#Coge la ruta del path y hace que se mueva por esta, cuando llega al final hacer un queue_free
-	var path_follow = get_parent()
-	path_follow.set_progress(path_follow.get_progress() + SPEED * delta)
-	if path_follow.get_progress_ratio() == 1:
-		queue_free()
-		
+		if path_follow.progress_ratio >= 1.0:  # Si llega al final, se elimina
+			queue_free()
+
+func get_progress() -> float:
+	return path_follow.progress_ratio if path_follow else 0.0  # Retorna el avance del enemigo
+
 func check_health() -> void:
-	#Mira si la vida del enemigo es menor o igual que 0
 	if HEALTH <= 0:
-		get_parent().get_parent().queue_free() 
+		queue_free() 
+
+func take_damage(damage):
+	HEALTH -= damage
+	check_health()

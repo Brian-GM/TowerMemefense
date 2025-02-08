@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvx0uiw11f5jn"]
+[gd_scene load_steps=3 format=3 uid="uid://bvx0uiw11f5jn"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_o185b"]
+[ext_resource type="Texture2D" uid="uid://devb032o8fy2n" path="res://assets/sprites/map/levels/nivel1.png" id="2_c2tjy"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_o185b")
+
+[node name="Nivel1" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+texture = ExtResource("2_c2tjy")
+
+[node name="CuiCuiCoins" type="Label" parent="."]
+top_level = true
+offset_right = 114.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 25
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CuiCuiGems" type="Label" parent="."]
+top_level = true
+offset_left = 119.0
+offset_right = 233.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 25
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OleadaNº" type="Label" parent="."]
+top_level = true
+offset_left = 606.0
+offset_right = 720.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 25
+text = "1
+"
+horizontal_alignment = 1
+vertical_alignment = 1

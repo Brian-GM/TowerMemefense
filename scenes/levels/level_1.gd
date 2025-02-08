@@ -21,3 +21,51 @@ func _on_enemies_spawn_timeout() -> void:
 	# Instanciar enemigo y asignarlo al nuevo PathFollow2D
 	var larry = enemies.larry.instantiate()
 	new_path_follow.add_child(larry)
+
+
+func _on_place_1_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_3_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_4_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_5_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_6_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_7_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_8_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_9_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_10_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_11_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_place_12_pressed() -> void:
+	pass # Replace with function body.
