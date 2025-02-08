@@ -1,0 +1,67 @@
+[gd_scene load_steps=13 format=3 uid="uid://boetdywdh7a44"]
+
+[ext_resource type="Script" path="res://scripts/enemies/larry.gd" id="1_xkxh2"]
+[ext_resource type="Texture2D" uid="uid://btf3bm8aa582f" path="res://assets/sprites/enemys/larry/enemigo1.png" id="2_64yrg"]
+[ext_resource type="Texture2D" uid="uid://c1hde2xno1rvu" path="res://assets/sprites/enemys/larry/enemigo2.png" id="3_yhq57"]
+[ext_resource type="Texture2D" uid="uid://de37ovkevrfp7" path="res://assets/sprites/enemys/larry/enemigo3.png" id="4_ed2ms"]
+[ext_resource type="Texture2D" uid="uid://738fwycfina4" path="res://assets/sprites/enemys/larry/enemigo4.png" id="5_1wj7o"]
+[ext_resource type="Texture2D" uid="uid://daq7m7dbd5w8e" path="res://assets/sprites/enemys/larry/enemigo5.png" id="6_bx5yv"]
+[ext_resource type="Texture2D" uid="uid://baldfvlr4wc1r" path="res://assets/sprites/enemys/larry/enemigo6.png" id="7_7dr0g"]
+[ext_resource type="Texture2D" uid="uid://cyo0b8m7yovf1" path="res://assets/sprites/enemys/larry/enemigo7.png" id="8_afuye"]
+[ext_resource type="Texture2D" uid="uid://bufg074afrs04" path="res://assets/sprites/enemys/larry/enemigo8.png" id="9_rf6d6"]
+[ext_resource type="Texture2D" uid="uid://n61ui03levpd" path="res://assets/sprites/enemys/larry/enemigo9.png" id="10_h0ijm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0q5sy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_64yrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yhq57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ed2ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1wj7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bx5yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7dr0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_afuye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rf6d6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h0ijm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bv2h"]
+radius = 38.0
+height = 256.0
+
+[node name="Larry" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_xkxh2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -25)
+rotation = -1.5708
+scale = Vector2(0.5, 0.528)
+sprite_frames = SubResource("SpriteFrames_0q5sy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -21)
+rotation = -1.5708
+scale = Vector2(0.5, 0.528)
+shape = SubResource("CapsuleShape2D_0bv2h")

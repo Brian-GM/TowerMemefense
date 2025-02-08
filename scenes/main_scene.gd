@@ -1,6 +1,13 @@
 extends Node2D
-@onready var path = preload("res://scenes/levels/path_lvl1.tscn")
+@onready var levels = {
+	"level1": preload("res://scenes/levels/level_1.tscn"),
+	#level2: preload(""),
+	#level3: preload(""),
+	#level4: preload(""),
+	#level5: preload("")
+}
 
-func _on_spawn_timer_timeout() -> void:
-	var tempPath = path.instantiate()
-	add_child(tempPath)
+func _ready():
+	var level_scene = levels.level1.instantiate()
+	add_child(level_scene)
+	print("Nivel 1 cargado")
