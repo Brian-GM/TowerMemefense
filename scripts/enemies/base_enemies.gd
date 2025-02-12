@@ -4,6 +4,7 @@ class_name BaseEnemy
 
 var SPEED = 0
 var HEALTH = 0
+var GOLD = 0
 
 @onready var path_follow: PathFollow2D = get_parent() as PathFollow2D  # Accede al PathFollow2D
 
@@ -20,6 +21,8 @@ func get_progress() -> float:
 func check_health() -> void:
 	if HEALTH <= 0:
 		queue_free() 
+		DataController.update_coins(GOLD,0,0)
+		WaveController.living_enemies -= 1
 
 func take_damage(damage):
 	HEALTH -= damage

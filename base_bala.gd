@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var speed: float = 300  # Velocidad de la bala
+@export var speed: float = 50  # Velocidad de la bala
 var target: Node2D = null  # Enemigo a seguir
-var damage: int = 10
+var damage: int = 100
 
 func _process(delta: float) -> void:
 	if is_instance_valid(target):
-		look_at(target.position) 
+		look_at(target.global_position) 
 		var direction = (target.global_position - global_position).normalized()
-		position += direction * speed * delta  # Mueve la bala en dirección al objetivo
+		position += direction * speed * delta 
 	else:
-		queue_free()  # Si el enemigo desaparece, eliminar la bala
+		queue_free()  
 
 
 

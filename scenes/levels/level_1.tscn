@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmw32yrc4gtg1"]
+[gd_scene load_steps=5 format=3 uid="uid://cmw32yrc4gtg1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_476ud"]
-[ext_resource type="Texture2D" uid="uid://devb032o8fy2n" path="res://assets/sprites/map/levels/nivel1.png" id="1_k2kn7"]
-[ext_resource type="PackedScene" uid="uid://bcvmac18putvb" path="res://base_tower.tscn" id="3_s3fc0"]
+[ext_resource type="Texture2D" uid="uid://bpkavuuabx8fl" path="res://assets/sprites/map/levels/nivel1.png" id="1_k2kn7"]
 
 [sub_resource type="Curve2D" id="Curve2D_jok7v"]
 _data = {
@@ -25,86 +24,54 @@ curve = SubResource("Curve2D_jok7v")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(360, -18)
 rotation = 1.59365
+rotates = false
+loop = false
 
-[node name="EnemiesSpawn" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+[node name="TowerSpots" type="Node2D" parent="."]
 
-[node name="BaseTower" parent="." instance=ExtResource("3_s3fc0")]
-position = Vector2(332, 350)
-
-[node name="PlaceTowerSites" type="Node2D" parent="."]
-
-[node name="Place1" type="TouchScreenButton" parent="PlaceTowerSites"]
-position = Vector2(487, 158)
-scale = Vector2(6.8106, 6.6409)
-shape = SubResource("CircleShape2D_qu4uq")
-
-[node name="Place2" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot1" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(275, 291)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place3" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot2" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(440, 294)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place4" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot3" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(605, 301)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place5" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot4" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(162, 545)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place6" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot5" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(317, 553)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place7" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot6" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(471, 556)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place8" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot7" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(295, 833)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place9" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot8" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(449, 838)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place10" type="TouchScreenButton" parent="PlaceTowerSites"]
+[node name="Spot9" type="TouchScreenButton" parent="TowerSpots"]
 position = Vector2(601, 836)
 scale = Vector2(6.8106, 6.6409)
 shape = SubResource("CircleShape2D_qu4uq")
 
-[node name="Place11" type="TouchScreenButton" parent="PlaceTowerSites"]
-position = Vector2(514, 1005)
-scale = Vector2(6.8106, 6.6409)
-shape = SubResource("CircleShape2D_qu4uq")
-
-[node name="Place12" type="TouchScreenButton" parent="PlaceTowerSites"]
-position = Vector2(132, 1123)
-scale = Vector2(6.8106, 6.6409)
-shape = SubResource("CircleShape2D_qu4uq")
-
-[connection signal="timeout" from="EnemiesSpawn" to="." method="_on_enemies_spawn_timeout"]
-[connection signal="pressed" from="PlaceTowerSites/Place1" to="." method="_on_place_1_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place2" to="." method="_on_place_2_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place3" to="." method="_on_place_3_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place4" to="." method="_on_place_4_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place5" to="." method="_on_place_5_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place6" to="." method="_on_place_6_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place7" to="." method="_on_place_7_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place8" to="." method="_on_place_8_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place9" to="." method="_on_place_9_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place10" to="." method="_on_place_10_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place11" to="." method="_on_place_11_pressed"]
-[connection signal="pressed" from="PlaceTowerSites/Place12" to="." method="_on_place_12_pressed"]
+[connection signal="pressed" from="TowerSpots/Spot1" to="." method="_on_spot_1_pressed"]

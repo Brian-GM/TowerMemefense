@@ -15,18 +15,36 @@ run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DataController="*res://scripts/utils/DataController.gd"
+Gamemanager="*res://scripts/utils/GameManager.gd"
+WaveController="*res://scripts/WaveController.gd"
+
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/mode=3
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [global_group]
 
 Enemy=""
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
