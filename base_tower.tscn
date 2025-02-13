@@ -30,6 +30,8 @@ shape = SubResource("CircleShape2D_utjro")
 [node name="ShootCooldown" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Selector" type="TouchScreenButton" parent="."]
+
 [connection signal="body_entered" from="AlcanceAtaque" to="." method="_on_alcance_ataque_body_entered"]
 [connection signal="body_exited" from="AlcanceAtaque" to="." method="_on_alcance_ataque_body_exited"]
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

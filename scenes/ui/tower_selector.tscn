@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://nl85m8ubjnoe"]
+
+[ext_resource type="Script" path="res://scenes/ui/tower_selector.gd" id="1_bukln"]
+[ext_resource type="Texture2D" uid="uid://c0tuqvgk5xpxx" path="res://assets/sprites/Diseño sin título (14).png" id="1_y3yq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vi8bk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx10u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fl64t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jn35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6ndq"]
+
+[sub_resource type="Theme" id="Theme_k0iuv"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_vi8bk")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_bx10u")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_fl64t")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_3jn35")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_y6ndq")
+
+[node name="TowerSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bukln")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -590.0
+offset_right = 350.0
+offset_bottom = 610.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997659, 1)
+theme = SubResource("Theme_k0iuv")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_y3yq8")

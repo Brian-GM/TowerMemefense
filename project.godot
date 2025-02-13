@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 DataController="*res://scripts/utils/DataController.gd"
-Gamemanager="*res://scripts/utils/GameManager.gd"
 WaveController="*res://scripts/WaveController.gd"
 
 [display]

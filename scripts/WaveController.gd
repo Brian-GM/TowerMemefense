@@ -1,19 +1,26 @@
 extends Node2D
 
-@onready var last_wave: int = DataController.database.select_rows("dificulty", "id == 1", ["numbers_waves"])[0]["numbers_waves"]
+@onready var main_level_id: int = DataController.database.select_rows("main_scene", "1", ["level_id"])[0]["level_id"]
+@onready var level_dificulty_id:int = DataController.database.select_rows("level", "id == %s" % main_level_id, ["dificulty_id"])[0]["dificulty_id"]
+@onready var last_wave: int = DataController.database.select_rows("dificulty", "id == %s" % level_dificulty_id, ["numbers_waves"])[0]["numbers_waves"]
+
 @onready var enemies_per_wave: int = DataController.database.select_rows("dificulty", "id == 1", ["enemies_numbers"])[0]["enemies_numbers"]
 var living_enemies: int = 0
 var spawn_interval: float = 1
 var current_wave: int = 1
 
+#@onready var current_wave: int = DataController.database.select_rows("main_scene", "1", ["wave"])[0]["wave"]
+
+var is_spawning: bool = false
 
 func _ready() -> void:
-	pass
+	print(main_level_id)
 
 func start_wave(enemies: Array) -> void:
 	living_enemies = enemies_per_wave
-	print(living_enemies)
+	is_spawning = true
 	if current_wave <= last_wave:
+		DataController.update_wave(current_wave)
 		print("Iniciando oleada ", current_wave)
 
 		for i in range(enemies_per_wave):
@@ -39,16 +46,12 @@ func start_wave(enemies: Array) -> void:
 			enemy.speed *= DataController.database.select_rows("dificulty", "id == 1", ["multiplicator_movement_speed"])[0]["multiplicator_movement_speed"]
 			enemy.gold *= DataController.database.select_rows("dificulty", "id == 1", ["multiplicator_gold"])[0]["multiplicator_gold"]
 			enemy.set_meta("path_follow", new_path_follow)
-			new_path_follow.add_child(enemy)	
-			print("Enemigo ++")
-
-			
-
-		current_wave += 1
+			new_path_follow.add_child(enemy)
+		is_spawning = false
 		
 		
 func check_end_wave(enemies):
-	print("Enemigos vivos: " , living_enemies , " Enemigos totales: ",enemies_per_wave)
-	if living_enemies <= 0:
-		await get_tree().create_timer(5).timeout  # Espera entre oleadas
+	if !is_spawning and living_enemies <= 0:
+		print(current_wave)
+		current_wave+= 1		
 		start_wave(enemies) 
